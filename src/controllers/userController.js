@@ -146,7 +146,9 @@ export const postEdit = async (req, res) => {
       user: { _id },
     },
     body: { name, email, username, location },
+    file,
   } = req;
+  console.log(file);
   if (req.session.user.email !== email || req.session.user.username !== username) {
     const exists = await User.exists({ $or: [{ username }, { email }] });
     if (exists) {
@@ -196,7 +198,7 @@ export const postChangePassword = async (req, res) => {
       errorMessage: "The password does not match the confirmation",
     });
   }
-  
+
   user.password = newPassword;
   await user.save();
   return res.redirect("/users/logout");
