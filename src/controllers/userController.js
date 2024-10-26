@@ -165,7 +165,8 @@ export const postEdit = async (req, res) => {
       email,
       username,
       location,
-    }, { new: true }
+    }, 
+    { new: true }
   );
   req.session.user = updatedUser;
   return res.redirect("/users/edit");
