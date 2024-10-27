@@ -109,7 +109,7 @@ const handleKeyboard = (e) => {
 
 const handleEnded = () => {
     const { id } = videoContainer.dataset;
-    fetch(`/api/videos/${id}/views`, {
+    fetch(`/api/videos/${id}/view`, {
         method: "POST",
     });
 };
@@ -117,7 +117,7 @@ const handleEnded = () => {
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
-video.addEventListener("loadeddata", handleLoadedMetadata);
+video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlayClick);
 video.addEventListener("ended", handleEnded);
